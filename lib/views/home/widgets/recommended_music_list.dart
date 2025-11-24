@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:music_app/core/resources/font_size_manager.dart';
 import 'package:music_app/core/resources/height_manager.dart';
