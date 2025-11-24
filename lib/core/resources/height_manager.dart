@@ -9,5 +9,12 @@ class HeightManager {
   static const double h72 = 72.0;
   static const double h21 = 21.0;
   static const double h247 = 247.0;
+  static const double h16 = 16.0;
+  static const double h18 = 18.0;
+  static const double h20 = 20.0;
+  static const double h24 = 24.0;
+  static const double h36 = 36.0;
+
+
 
 }

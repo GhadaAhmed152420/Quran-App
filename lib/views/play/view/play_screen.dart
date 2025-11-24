@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:music_app/core/resources/alpha_manager.dart';
 import 'package:music_app/core/resources/font_size_manager.dart';
-import 'package:music_app/core/resources/height_manager.dart';
 import 'package:music_app/core/resources/icon_size_manager.dart';
 import 'package:music_app/core/resources/padding_manager.dart';
-import 'package:music_app/core/resources/radius_manager.dart';
 import 'package:music_app/core/resources/strings_manager.dart';
 import 'package:music_app/core/resources/width_manager.dart';
-import '../../../controllers/home_controller.dart';
 import '../../../core/resources/colors_manager.dart';
+import '../widgets/custom_player_controls.dart';
+import '../widgets/custom_song_details.dart';
 
 class PlayScreen extends StatelessWidget {
   const PlayScreen({super.key});
@@ -62,62 +60,14 @@ class PlayScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Stack(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: PaddingManager.p174,
-                    left: PaddingManager.p96_5,
-                    right: PaddingManager.p96_5,
-                  ),
-                  child: Container(
-                    width: WidthManager.w234,
-                    height: HeightManager.h247,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(RadiusManager.r20),
-                      color: ColorsManager.white.withValues(alpha: AlphaManager.a0_05)
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    top: PaddingManager.p174,
-                    left: PaddingManager.p90,
-                    right: PaddingManager.p90,
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(RadiusManager.r20),
-                    child: Image.network(HomeController.songsModel.image),
-                  ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: PaddingManager.p23),
-              child: Text(
-                HomeController.songsModel.name,
-                style: TextStyle(
-                  color: ColorsManager.white,
-                  fontSize: FontSizeManager.fs18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: PaddingManager.p4),
-              child: Text(
-                HomeController.songsModel.singer,
-                style: TextStyle(
-                  color: ColorsManager.lilac,
-                  fontSize: FontSizeManager.fs12,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
+            CustomSongDetails(),
+            CustomPlayerControls(),
           ],
         ),
       ),
     );
   }
 }
+
+
+

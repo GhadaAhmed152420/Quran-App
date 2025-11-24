@@ -7,11 +7,17 @@ class AssetsManager {
   static const String list = "$iconsPath/list.png";
   static const String favorite = "$iconsPath/favorite.png";
   static const String settings = "$iconsPath/settings.png";
+  static const String shuffle = "$iconsPath/shuffle.png";
+  static const String previous = "$iconsPath/previous.png";
+  static const String next = "$iconsPath/next.png";
+  static const String repeat = "$iconsPath/repeat.png";
+  static const String pause = "$iconsPath/pause.png";
 
   //Fonts
   static const String orbitron = 'Orbitron';
   static const String orbitronPath = 'assets/fonts/Orbitron-Regular.ttf';
 
   //Images
-  static const String musicGuy = 'assets/images/music_guy.png';
+  static const String imagesPath = 'assets/images';
+  static const String musicGuy = '$imagesPath/music_guy.png';
 }

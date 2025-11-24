@@ -20,5 +20,7 @@ class PaddingManager {
   static const double p23 = 23.0;
   static const double p4 = 4.0;
   static const double p16 = 16.0;
+  static const double p21 = 21.0;
+  static const double p26 = 26.0;
 
 }
