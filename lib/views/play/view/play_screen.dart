@@ -4,6 +4,7 @@ import 'package:music_app/core/resources/icon_size_manager.dart';
 import 'package:music_app/core/resources/padding_manager.dart';
 import 'package:music_app/core/resources/strings_manager.dart';
 import 'package:music_app/core/resources/width_manager.dart';
+import 'package:music_app/views/play/widgets/custom_actions_list.dart';
 import '../../../core/resources/colors_manager.dart';
 import '../widgets/custom_player_controls.dart';
 import '../widgets/custom_song_details.dart';
@@ -62,6 +63,7 @@ class PlayScreen extends StatelessWidget {
           children: [
             CustomSongDetails(),
             CustomPlayerControls(onChanged: (double value) {  }, value: 0.6,),
+            CustomActionsList()
           ],
         ),
       ),
