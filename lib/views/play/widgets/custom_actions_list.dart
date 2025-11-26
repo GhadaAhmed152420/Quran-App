@@ -24,7 +24,7 @@ class CustomActionsList extends StatelessWidget {
           borderRadius: BorderRadius.circular(RadiusManager.r10),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: const EdgeInsets.all(PaddingManager.p4),
           child: ClipRRect(
             borderRadius: const BorderRadius.all(
               Radius.circular(RadiusManager.r10),
