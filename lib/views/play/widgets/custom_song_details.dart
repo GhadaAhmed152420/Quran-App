@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/models/songs_model.dart';
 import '../../../controllers/home_controller.dart';
 import '../../../core/resources/alpha_manager.dart';
 import '../../../core/resources/colors_manager.dart';
@@ -9,9 +10,9 @@ import '../../../core/resources/radius_manager.dart';
 import '../../../core/resources/width_manager.dart';
 
 class CustomSongDetails extends StatelessWidget {
-  const CustomSongDetails({
-    super.key,
-  });
+  const CustomSongDetails({super.key, required this.songModel});
+
+  final SongModel songModel;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class CustomSongDetails extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(RadiusManager.r20),
-                child: Image.network(HomeController.songsModel.image),
+                child: Image.network(songModel.image),
               ),
             ),
           ],
@@ -52,7 +53,7 @@ class CustomSongDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: PaddingManager.p23),
           child: Text(
-            HomeController.songsModel.name,
+            songModel.name,
             style: TextStyle(
               color: ColorsManager.white,
               fontSize: FontSizeManager.fs18,
@@ -63,7 +64,7 @@ class CustomSongDetails extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: PaddingManager.p4),
           child: Text(
-            HomeController.songsModel.singer,
+            songModel.singer,
             style: TextStyle(
               color: ColorsManager.lilac,
               fontSize: FontSizeManager.fs12,

@@ -23,7 +23,7 @@ class CustomSearchBox extends StatelessWidget {
           hintStyle: TextStyle(
             color: ColorsManager.white,
             fontSize: FontSizeManager.fs12,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.bold,
           ),
           filled: true,
           fillColor: ColorsManager.lilac,

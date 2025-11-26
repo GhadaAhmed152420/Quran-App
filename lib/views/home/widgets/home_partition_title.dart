@@ -17,7 +17,7 @@ class HomePartitionTitle extends StatelessWidget {
       child: Text(title, style: TextStyle(
         color: ColorsManager.white,
         fontSize: FontSizeManager.fs18,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
       ),
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../controllers/home_controller.dart';
+import 'package:music_app/models/songs_model.dart';
 import '../../../core/resources/alpha_manager.dart';
 import '../../../core/resources/assets_manager.dart';
 import '../../../core/resources/colors_manager.dart';
@@ -10,7 +10,9 @@ import '../../../core/resources/radius_manager.dart';
 import '../../../core/resources/width_manager.dart';
 
 class CustomUpNextPanel extends StatelessWidget {
-  const CustomUpNextPanel({super.key});
+  const CustomUpNextPanel({super.key, required this.songModel});
+
+  final SongModel songModel;
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class CustomUpNextPanel extends StatelessWidget {
                       borderRadius: BorderRadius.circular(RadiusManager.r10),
                       image: DecorationImage(
                         image: NetworkImage(
-                          HomeController.songsModel.image,
+                          songModel.image,
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -86,7 +88,7 @@ class CustomUpNextPanel extends StatelessWidget {
                   title: Padding(
                     padding: const EdgeInsets.only(top: PaddingManager.p9),
                     child: Text(
-                      HomeController.songsModel.name,
+                      songModel.name,
                       style: TextStyle(
                         color: ColorsManager.white,
                         fontSize: FontSizeManager.fs15,
@@ -95,7 +97,7 @@ class CustomUpNextPanel extends StatelessWidget {
                     ),
                   ),
                   subtitle: Text(
-                    HomeController.songsModel.singer,
+                      songModel.singer,
                     style: TextStyle(
                       color: ColorsManager.lilac,
                       fontSize: FontSizeManager.fs12,

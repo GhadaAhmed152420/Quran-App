@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_app/controllers/play_controller.dart';
 import 'package:music_app/core/resources/font_size_manager.dart';
 import 'package:music_app/core/resources/icon_size_manager.dart';
 import 'package:music_app/core/resources/padding_manager.dart';
@@ -10,19 +11,38 @@ import '../widgets/custom_player_controls.dart';
 import '../widgets/custom_song_details.dart';
 import '../widgets/custom_up_next_panel.dart';
 
-class PlayScreen extends StatelessWidget {
+class PlayScreen extends StatefulWidget {
   const PlayScreen({super.key});
 
   @override
+  State<PlayScreen> createState() => _PlayScreenState();
+}
+
+class _PlayScreenState extends State<PlayScreen> {
+  late PlayController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = PlayController();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    _controller.getArgIndex(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        leading: Icon(
-          Icons.arrow_back_ios_rounded,
-          size: IconSizeManager.is16,
-          color: ColorsManager.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_rounded,
+            size: IconSizeManager.is16,
+            color: ColorsManager.white,
+          ),
+          onPressed: () {
+            PlayController.popToHomeScreen(context);
+          },
         ),
         title: Text(
           StringsManager.playScreenTitle.toUpperCase(),
@@ -62,16 +82,13 @@ class PlayScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            CustomSongDetails(),
-            CustomPlayerControls(onChanged: (double value) {  }, value: 0.6,),
+            CustomSongDetails(songModel: _controller.songModel),
+            CustomPlayerControls(onChanged: (double value) {}, value: 0.6),
             CustomActionsList(),
-            CustomUpNextPanel(),
+            CustomUpNextPanel(songModel: _controller.songModel),
           ],
         ),
       ),
     );
   }
 }
-
-
-
