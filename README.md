@@ -1,4 +1,4 @@
-# music_app
+# quran_app
 
 A new Flutter project.
 
