@@ -21,7 +21,7 @@ class PlayScreen extends StatefulWidget {
 
 class _PlayScreenState extends State<PlayScreen> {
   late PlayController controller;
-  late AudioController audioController;
+  late AudioController _audioController;
   late int index;
 
   @override
@@ -34,14 +34,13 @@ class _PlayScreenState extends State<PlayScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     index = ModalRoute.of(context)!.settings.arguments as int;
-    audioController = AudioController(index);
-    audioController.playTrack();
+    _audioController = AudioController(index);
+    _audioController.playTrack();
   }
 
   @override
   void dispose() {
     super.dispose();
-    audioController.disposeTrack();
   }
 
   @override

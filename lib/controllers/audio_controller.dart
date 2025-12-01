@@ -6,9 +6,17 @@ class AudioController {
   late AudioPlayer audioPlayer;
   late AudioCache audioCache;
   late Uri url;
-  AudioController(this.index){
+
+  AudioController._(this.index){
     audioCache = AudioCache(prefix: "");
     audioPlayer = AudioPlayer();
+  }
+
+  static late final AudioController _instance;
+
+  factory AudioController(int index) {
+    _instance ??= AudioController._(index);
+    return _instance;
   }
 
   void playTrack() async {
